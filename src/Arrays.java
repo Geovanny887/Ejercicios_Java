@@ -54,7 +54,49 @@ public class Arrays {
         */
         double[] pesos = new double[20];
         double[] dolares = new double[20];
+
+         /*
+        8-Escribe un programa en Java que guarde en un arreglo los kilómetros 
+        recorridos de cada uno de los 10 taxis y en otro arreglo, la cantidad de 
+        gasolina que gasta cada uno de los 10 taxis si por cada 15 kilómetros es 
+        un litro de gasolina. Y cuanto gasto de dinero cada taxi por los litros
+        consumidos de gasolina si el precio por litro es de 19.40.
+        */
+public class TaxisGasolina {
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         
+        int numTaxis = 10;
+        double precioPorLitro = 19.40;
+        double[] kilometrosRecorridos = new double[numTaxis];
+        double[] litrosConsumidos = new double[numTaxis];
+        double[] gastoPorTaxi = new double[numTaxis];
+        
+        // Ingresar los kilómetros recorridos por cada taxi
+        System.out.println("Introduce los kilómetros recorridos por cada taxi:");
+        for (int i = 0; i < numTaxis; i++) {
+            System.out.print("Taxi " + (i + 1) + ": ");
+            kilometrosRecorridos[i] = sc.nextDouble();
+        }
+        
+        // Calcular los litros consumidos y el gasto por cada taxi
+        for (int i = 0; i < numTaxis; i++) {
+            litrosConsumidos[i] = kilometrosRecorridos[i] / 15.0; // 15 km por litro
+            gastoPorTaxi[i] = litrosConsumidos[i] * precioPorLitro;
+        }
+        
+        // Mostrar los resultados
+        System.out.println("\nResultados:");
+        for (int i = 0; i < numTaxis; i++) {
+            System.out.printf("Taxi %d: %.2f km recorridos, %.2f litros consumidos, $%.2f gasto%n",
+                    (i + 1), kilometrosRecorridos[i], litrosConsumidos[i], gastoPorTaxi[i]);
+        }
+        
+        
+    }
+}
+
         
     }
     
